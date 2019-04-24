@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Noto+Sans:400,700');
+
+// Variables
+$rgb: rgb(0, 0, 0);
+$green: rgb(31, 214, 25);
+$yellow: rgb(240, 236, 39);
+$red: rgb(214, 25, 25);
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: url('../img/background.jpeg');
+    background-size: cover;
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+
+    .container {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-size: 4rem;
+            margin: 2rem 0;
+            font-family: 'Kaushan Script', cursive;
+        }
+
+        form {
+            background: rgba($rgb, .5);
+            padding: 2rem;
+            width: 50vw;
+            max-width: 500px;
+            flex-direction: column;
+            display: flex;
+
+                input {
+                    font-size: 1.3rem;
+                    
+
+                    &[type="date"] {
+                        border-radius: 4px;
+                        border: none;
+                        padding: .5rem;
+                    }
+                }
+
+                label {
+                    margin: 0 0 -1rem 0;
+                    text-align: center;
+                }
+
+                @media screen and (max-width: 480px) {
+                    section {
+                        flex-direction: column;
+
+                        input[type="submit"] {
+                            width: 100%;
+                        }
+
+                    }
+                }
+
+                section {
+                    display: flex;
+                    margin: 1rem 0 0 0;
+                    align-items: center;
+                    justify-content: center;
+
+                    input[type="submit"] {
+                        margin: 1rem;
+                        flex: 1;
+                        border-radius: 7px; 
+                        padding: 1rem;
+                        background: rgba($rgb, .5);
+                        transition: all .2s ease;
+                        cursor: pointer;
+
+                        &.save {
+                            outline: $green;
+                            color: $green;
+                            border: 2px solid $green;
+                            transition: background .3s ease;
+
+                            &:hover {
+                                background: $green;
+                                color: rgba($rgb, .7);
+                            }
+                        }
+
+                        &.update {
+                            outline: $yellow;
+                            color: $yellow;
+                            border: 2px solid $yellow;
+                            transition: background .3s ease;
+
+                            &:hover {
+                                color: rgba($rgb, .7);
+                                background: $yellow;
+                            }
+                        }
+
+                        &.delete {
+                            outline: $red;
+                            color: $red;
+                            border: 2px solid $red;
+                            transition: background .3s ease;
+
+                            &:hover {
+                                color: rgba($rgb, .7);
+                                background: $red;
+                            }
+                        }
+                    
+                }
+
+            }
+
+        }
+
+    }
+
+}

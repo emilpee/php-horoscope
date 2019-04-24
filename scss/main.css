@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script|Noto+Sans:400,700");
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("../img/background.jpeg");
+  background-size: cover;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+body .container {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container h1 {
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-family: 'Kaushan Script', cursive;
+}
+
+body .container form {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 50vw;
+  max-width: 500px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .container form input {
+  font-size: 1.3rem;
+}
+
+body .container form input[type="date"] {
+  border-radius: 4px;
+  border: none;
+  padding: .5rem;
+}
+
+body .container form label {
+  margin: 0 0 -1rem 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  body .container form section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body .container form section input[type="submit"] {
+    width: 100%;
+  }
+}
+
+body .container form section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem 0 0 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .container form section input[type="submit"] {
+  margin: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 7px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+body .container form section input[type="submit"].save {
+  outline: #1fd619;
+  color: #1fd619;
+  border: 2px solid #1fd619;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+body .container form section input[type="submit"].save:hover {
+  background: #1fd619;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body .container form section input[type="submit"].update {
+  outline: #f0ec27;
+  color: #f0ec27;
+  border: 2px solid #f0ec27;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+body .container form section input[type="submit"].update:hover {
+  color: rgba(0, 0, 0, 0.7);
+  background: #f0ec27;
+}
+
+body .container form section input[type="submit"].delete {
+  outline: #d61919;
+  color: #d61919;
+  border: 2px solid #d61919;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+body .container form section input[type="submit"].delete:hover {
+  color: rgba(0, 0, 0, 0.7);
+  background: #d61919;
+}
+/*# sourceMappingURL=main.css.map */
