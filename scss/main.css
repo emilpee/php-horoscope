@@ -27,7 +27,7 @@ body .container h1 {
   font-family: 'Kaushan Script', cursive;
 }
 
-body .container form {
+body .container article {
   background: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   width: 50vw;
@@ -41,34 +41,34 @@ body .container form {
   display: flex;
 }
 
-body .container form input {
+body .container article input {
   font-size: 1.3rem;
 }
 
-body .container form input[type="date"] {
+body .container article input[type="date"] {
   border-radius: 4px;
   border: none;
   padding: .5rem;
 }
 
-body .container form label {
+body .container article label {
   margin: 0 0 -1rem 0;
   text-align: center;
 }
 
 @media screen and (max-width: 480px) {
-  body .container form section {
+  body .container article section {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body .container form section input[type="submit"] {
+  body .container article section input[type="submit"] {
     width: 100%;
   }
 }
 
-body .container form section {
+body .container article section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,20 +81,20 @@ body .container form section {
           justify-content: center;
 }
 
-body .container form section input[type="submit"] {
+body .container article section input[type="submit"] {
   margin: 1rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   border-radius: 7px;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
   cursor: pointer;
 }
 
-body .container form section input[type="submit"].save {
+body .container article section input[type="submit"].save {
   outline: #1fd619;
   color: #1fd619;
   border: 2px solid #1fd619;
@@ -102,12 +102,12 @@ body .container form section input[type="submit"].save {
   transition: background .3s ease;
 }
 
-body .container form section input[type="submit"].save:hover {
+body .container article section input[type="submit"].save:hover {
   background: #1fd619;
   color: rgba(0, 0, 0, 0.7);
 }
 
-body .container form section input[type="submit"].update {
+body .container article section input[type="submit"].update {
   outline: #f0ec27;
   color: #f0ec27;
   border: 2px solid #f0ec27;
@@ -115,12 +115,12 @@ body .container form section input[type="submit"].update {
   transition: background .3s ease;
 }
 
-body .container form section input[type="submit"].update:hover {
+body .container article section input[type="submit"].update:hover {
   color: rgba(0, 0, 0, 0.7);
   background: #f0ec27;
 }
 
-body .container form section input[type="submit"].delete {
+body .container article section input[type="submit"].delete {
   outline: #d61919;
   color: #d61919;
   border: 2px solid #d61919;
@@ -128,7 +128,7 @@ body .container form section input[type="submit"].delete {
   transition: background .3s ease;
 }
 
-body .container form section input[type="submit"].delete:hover {
+body .container article section input[type="submit"].delete:hover {
   color: rgba(0, 0, 0, 0.7);
   background: #d61919;
 }

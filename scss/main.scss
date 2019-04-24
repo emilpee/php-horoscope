@@ -26,7 +26,7 @@ body {
             font-family: 'Kaushan Script', cursive;
         }
 
-        form {
+        article {
             background: rgba($rgb, .5);
             padding: 2rem;
             width: 50vw;
@@ -43,10 +43,10 @@ body {
                         border: none;
                         padding: .5rem;
                     }
+                    
                 }
 
                 label {
-                    margin: 0 0 -1rem 0;
                     text-align: center;
                 }
 
@@ -72,7 +72,7 @@ body {
                         flex: 1;
                         border-radius: 7px; 
                         padding: 1rem;
-                        background: rgba($rgb, .5);
+                        background: rgba($rgb, .8);
                         transition: all .2s ease;
                         cursor: pointer;
 
