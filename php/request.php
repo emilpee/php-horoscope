@@ -1,8 +1,10 @@
 <?php
 
     include 'addHoroscope.php';
+    include 'viewHoroscope.php';
 
         try {
+
             if ($_POST["collectionType"] == "HoroscopeList") {
         
                 if($_POST["action"] == "getHoroscope") {
@@ -14,7 +16,9 @@
 
             }
 
-        } catch(Exception $error) {
-                http_response_code(500);
-                echo json_encode($error->getMessage());
-            }
+        } 
+        
+        catch(Exception $error) {
+            http_response_code(500);
+            echo json_encode($error->getMessage());
+        }

@@ -5,13 +5,15 @@
     <article>
         <label for="birthdate">Enter Your Birthday</label> 
         <br>
-        <input type="date" name="birthdate">
+        <input type="text" name="birthdate" id="birthdate" placeholder="XXXXXX" maxlength="6">
         <section>
           <input type="submit" class="save" name="save" value="Save" onclick="getHoroscope()">
           <input type="submit" class="update" name="update" value="Edit" onclick="updateHoroscope()">
           <input type="submit" class="delete" name="delete" value="Delete" onclick="deleteHoroscope()">
         </section>
     </article>
+
+    <p class="sign"></p>
   </div>
 
   <script src="js/script.js"></script>

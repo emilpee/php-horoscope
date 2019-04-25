@@ -45,14 +45,39 @@ body .container article input {
   font-size: 1.3rem;
 }
 
-body .container article input[type="date"] {
+body .container article input[type="text"] {
   border-radius: 4px;
   border: none;
   padding: .5rem;
 }
 
+body .container article input::-webkit-input-placeholder {
+  font-size: .5rem;
+  letter-spacing: .1rem;
+  -webkit-transform: translateY(-0.75rem);
+          transform: translateY(-0.75rem);
+}
+
+body .container article input:-ms-input-placeholder {
+  font-size: .5rem;
+  letter-spacing: .1rem;
+  transform: translateY(-0.75rem);
+}
+
+body .container article input::-ms-input-placeholder {
+  font-size: .5rem;
+  letter-spacing: .1rem;
+  transform: translateY(-0.75rem);
+}
+
+body .container article input::placeholder {
+  font-size: .5rem;
+  letter-spacing: .1rem;
+  -webkit-transform: translateY(-0.75rem);
+          transform: translateY(-0.75rem);
+}
+
 body .container article label {
-  margin: 0 0 -1rem 0;
   text-align: center;
 }
 
