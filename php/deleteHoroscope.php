@@ -2,14 +2,17 @@
 
     session_start();
 
-    $errorMessage = "No horoscope saved!";
-    $successMessage = "Your horoscope was deleted!";
+    if($_SERVER["REQUEST_METHOD"] == "DELETE") {
 
-    if($_SESSION == null) {
-        echo $errorMessage;
-    } else {
-        echo "$successMessage";
-        session_destroy();
-    }
+        $errorMessage = "No horoscope saved!";
+        $successMessage = "Your horoscope was deleted!";
+
+        if($_SESSION == null) {
+            echo $errorMessage;
+        } else {
+            echo $successMessage;
+            session_destroy();
+        } 
+    } 
 
 ?>
