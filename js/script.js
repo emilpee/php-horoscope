@@ -20,23 +20,20 @@ function makeRequest(url, method, formData, callback) {
 }
 
 function saveHoroscope() {
+
+    var date = document.querySelector('#birthdate');
+    var dateValue = document.querySelector('#birthdate').value;
+    var output = document.querySelector('.sign');
     
     var requestData = new FormData();
     requestData.append("collectionType", "HoroscopeList")
-    requestData.append("inputDate", "save");
+    requestData.append("inputDate", dateValue);
     var url = "./php/request.php";
 
     makeRequest(url, "POST", requestData, (response) => {
         
         if(response) {
             console.log(response);
-
-            console.log(requestData.value);
-
-            //viewHoroscope();
-
-            var date = document.querySelector('#birthdate');
-            var output = document.querySelector('.sign');
             
             output.innerHTML = date.value;
             date.value = '';
@@ -52,7 +49,7 @@ function viewHoroscope() {
     var url = "./php/viewHoroscope.php";
     
     makeRequest(url, "GET", (response) => {
-        console.log(response);
+
     })
 }
 
@@ -63,6 +60,11 @@ function updateHoroscope() {
 function deleteHoroscope() {
     url = "./php/deleteHoroscope.php";
     makeRequest(url, "DELETE", (response) => {
-        console.log(response);
+        if(response) {
+
+            var output = document.querySelector('.sign');
+            output.innerHTML = "Your horoscope was deleted!";
+            
+        }
     })
 }

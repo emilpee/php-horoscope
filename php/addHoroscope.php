@@ -2,8 +2,9 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    include 'function.php';
-    $wrongNumberMessage = $horoscope->printSign();
+    // Save last four chars from input and add to session
+    $date = substr($_POST["inputDate"], 2);
+    $_SESSION['personNr'] = $date;
 
 
 }
