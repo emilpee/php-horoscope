@@ -28,7 +28,7 @@ function viewHoroscope() {
     makeRequest(url, "GET", undefined, (response) => {
         if(response) {
             output.innerHTML = `You are: ${response[0].horoscopeSign}`;
-        }
+        } 
     })
 }
 
@@ -78,3 +78,5 @@ function deleteHoroscope() {
         }
     })
 }
+
+viewHoroscope();
