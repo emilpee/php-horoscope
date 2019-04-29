@@ -6,14 +6,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["inputDate"]) && (!isset($_SESSION['horoscope']))){
 
-        include_once('database.php');
+        $newDate = $_POST["inputDate"];
+        include_once('./database.php');
         $database = new Database();
-        $sql = "SELECT horoscopeSign FROM HoroscopeList";
+        $sql = "SELECT * FROM HoroscopeList WHERE (dateFrom <= '$newDate') AND (dateUntil >= '$newDate')";
         $query = $database->connection->prepare($sql);
         $query->execute();
         $result = $query->fetchAll();
 
-        // $date = substr($_POST["inputDate"], 2);
+        if(empty($result)) {
+            $sql = "SELECT * FROM HoroscopeList WHERE id == 1";
+            $query = $database->connection->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll();
+            $_SESSION['horoscope'] = $result;
+            echo json_encode(true);
+            exit;
+        }
+
         $_SESSION['horoscope'] = $result;
         echo json_encode(true);
 

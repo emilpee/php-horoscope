@@ -4,11 +4,11 @@
 
     if($_SERVER["REQUEST_METHOD"] == "DELETE") {
 
-        if(!isset($_SESSION['horoscope'])) {
-            echo json_encode(false);
-        } else {
+        if(isset($_SESSION['horoscope']) || $_SESSION['horoscope'] == NULL) {
             echo json_encode(true);
             session_destroy();
+        } else {
+            echo json_encode(false);
         } 
     } 
 
