@@ -1,12 +1,13 @@
 <?php
 
+session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "GET"){
 
-   if($_SESSION == null){
-        echo "<p>There is no horoscope saved.</p>";
+    if(isset($_SESSION["horoscope"])){
+        echo json_encode('Horoskopet har lagts till');
+    } else {
+        echo json_encode('');
     }
-    else {
-        echo ($_SESSION["horoscope"]);
-    } 
 
-}
+} 

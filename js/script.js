@@ -2,7 +2,6 @@ var date = document.querySelector('#birthdate');
 var dateValue = document.querySelector('#birthdate').value;
 var output = document.querySelector('.sign');
 
-
 function makeRequest(url, method, formData, callback) {
     var headers;
     if(method == "GET") {
@@ -25,31 +24,26 @@ function makeRequest(url, method, formData, callback) {
 }
 
 function saveHoroscope() {
-
     var requestData = new FormData();
-    requestData.append("collectionType", "HoroscopeList")
     requestData.append("inputDate", dateValue);
-    var url = "./php/function.php";
+    var url = "./php/addHoroscope.php";
 
-    makeRequest(url, "POST", requestData, (response) => {
-        
-        if(response) {
-            console.log(response);
-            output.innerHTML = date.value;
-            date.value = '';
-        }
+   makeRequest(url, "POST", requestData, (response) => {
+        console.log(response);
+        viewHoroscope();
+        output.innerHTML = date.value;
+        date.value = '';
+    }) 
 
-    }
-
-)};
+   };
 
 function viewHoroscope() {
-    var requestData = new FormData();
-    requestData.append("collectionType", "HoroscopeList")
     var url = "./php/viewHoroscope.php";
+    var requestData = new FormData();
+    requestData.append("collectionType", "HoroscopeList");
     
-    makeRequest(url, "GET", (response) => {
-        return response;
+    makeRequest(url, "GET", requestData, (response) => {
+        console.log(response);
     })
 }
 
@@ -61,12 +55,13 @@ function deleteHoroscope() {
 
     var requestData = new FormData();
     url = "./php/deleteHoroscope.php";
-    requestData.append("collectionType", "HoroscopeList")
+    requestData.append("inputDate", dateValue);
 
     makeRequest(url, "DELETE", requestData, (response) => {
-
+        console.log(response);
         if(response) {
-           output.innerText = 'The horoscope was deleted';
+            viewHoroscope();
+            output.innerText = 'The horoscope was deleted';
         }
         
     })

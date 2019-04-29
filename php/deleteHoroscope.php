@@ -4,13 +4,10 @@
 
     if($_SERVER["REQUEST_METHOD"] == "DELETE") {
 
-        $errorMessage = "No horoscope saved!";
-        $successMessage = "Your horoscope was deleted!";
-
-        if($_SESSION == null) {
-            echo $errorMessage;
+        if(!isset($_SESSION['horoscope'])) {
+            echo json_encode(false);
         } else {
-            echo $successMessage;
+            echo json_encode(true);
             session_destroy();
         } 
     } 
