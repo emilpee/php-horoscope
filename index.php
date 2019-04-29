@@ -1,5 +1,4 @@
 <?php session_start();
-var_dump($_SESSION);
 require 'php/header.php'; ?>
 
   <div class="container">

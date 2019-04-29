@@ -1,12 +1,23 @@
-<?php
+<?php 
 
 session_start();
-parse_str(file_get_contents("php://input"), $_PUT); 
 
-if ($_SERVER["REQUEST_METHOD"] == $_PUT) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if(isset($_SESSION['horoscope'])) {
-        echo json_encode(array($_SESSION["horoscope"]));
+    if (isset($_POST["inputDate"]) && (isset($_SESSION['horoscope']))){
+
+        $newDate = $_POST["inputDate"];
+        include_once('./database.php');
+        $database = new Database();
+        $sql = "SELECT * FROM HoroscopeList WHERE (dateFrom <= '$newDate') AND (dateUntil >= '$newDate')";
+        $query = $database->connection->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll();
+
+        $_SESSION['horoscope'] = $result;
+        echo json_encode(true);
+
+    } else {
+        echo json_encode(false);
     }
-
 }

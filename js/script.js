@@ -23,13 +23,22 @@ function makeRequest(url, method, formData, callback) {
     })
 }
 
+function viewHoroscope() {
+    var url = "./php/viewHoroscope.php";
+    makeRequest(url, "GET", undefined, (response) => {
+        if(response) {
+            output.innerHTML = `You are: ${response[0].horoscopeSign}`;
+        }
+    })
+}
+
+
 function saveHoroscope() {
     var requestData = new FormData();
-    var dateValue = new Date(document.querySelector('#birthdate').value)
-    dateValue.setFullYear("2019")
-
-    var dateToSave = dateValue.toISOString().substring(0, 10)
-
+    // Convert input year to year stated in database
+    var dateValue = new Date(document.querySelector('#birthdate').value);
+    dateValue.setFullYear("2019");
+    var dateToSave = dateValue.toISOString().substring(0, 10);
     requestData.append("inputDate", dateToSave);
     var url = "./php/addHoroscope.php";
 
@@ -40,21 +49,16 @@ function saveHoroscope() {
 
 };
 
-function viewHoroscope() {
-    var url = "./php/viewHoroscope.php";
-    
-    makeRequest(url, "GET", undefined, (response) => {
-        output.innerHTML = `You are: ${response[0].horoscopeSign}`;
-    })
-}
-
 function updateHoroscope() {
-    var url = "./php/updateHoroscope.php";
     var requestData = new FormData();
-    var dateValue = document.querySelector('#birthdate').value;
-    requestData.append("inputDate", dateValue);
+    // Convert input year to year stated in database
+    var dateValue = new Date(document.querySelector('#birthdate').value);
+    dateValue.setFullYear("2019");
+    var dateToSave = dateValue.toISOString().substring(0, 10);
+    requestData.append("inputDate", dateToSave);
+    var url = "./php/updateHoroscope.php";
 
-    makeRequest(url, "PUT", requestData, (response) => {
+    makeRequest(url, "POST", requestData, (response) => {
         console.log(response);
         viewHoroscope();
     })
@@ -67,7 +71,7 @@ function deleteHoroscope() {
         console.log(response);
         if(response) {
             viewHoroscope();
-            output.innerText = 'The horoscope was deleted';
+            output.innerText = 'Your horoscope was deleted';
             setTimeout(() => {
                 window.location.reload();
             }, 1500);

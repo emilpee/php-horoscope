@@ -2,7 +2,7 @@
 
 session_start();
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["inputDate"]) && (!isset($_SESSION['horoscope']))){
 
@@ -14,18 +14,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $query->execute();
         $result = $query->fetchAll();
 
-        if(empty($result)) {
-            $sql = "SELECT * FROM HoroscopeList WHERE id == 1";
-            $query = $database->connection->prepare($sql);
-            $query->execute();
-            $result = $query->fetchAll();
-            $_SESSION['horoscope'] = $result;
-            echo json_encode(true);
-            exit;
-        }
-
         $_SESSION['horoscope'] = $result;
-        echo json_encode(true);
+         //echo json_encode(true);
 
     } else {
         echo json_encode(false);
